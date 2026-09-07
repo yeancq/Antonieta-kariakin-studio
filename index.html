@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antonieta Kariakin Studio — Extensiones de pestañas y cejas</title>
+  <meta name="description" content="Extensiones de pestañas, lifting y diseño de cejas personalizado. Reserva tu cita en Antonieta Kariakin Studio.">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css?v=__CACHEBUST__">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="site-header__inner">
+      <a href="#top" class="logo" aria-label="Antonieta Kariakin Studio, inicio">
+        <span class="logo__name">Antonieta Kariakin</span>
+        <span class="logo__studio">Studio</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#servicios">Servicios</a>
+        <a href="#packs">Packs</a>
+        <a href="#agendar">Cómo agendar</a>
+        <a href="#politicas">Políticas</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#agendar" class="btn btn--nav">Reservar cita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="top" aria-label="Presentación">
+      <video
+        class="hero__video"
+        id="heroVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="assets/img/hero-poster.jpg?v=__CACHEBUST__"
+      >
+        <source src="assets/video/hero.webm?v=__CACHEBUST__" type="video/webm">
+        <source src="assets/video/hero.mp4?v=__CACHEBUST__" type="video/mp4">
+      </video>
+
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <button class="hero__toggle" id="heroToggle" type="button" aria-pressed="false" aria-label="Pausar video de fondo">
+        <svg class="icon icon--pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>
+        <svg class="icon icon--play" viewBox="0 0 24 24" aria-hidden="true" hidden><polygon points="7,5 19,12 7,19"></polygon></svg>
+      </button>
+
+      <div class="hero__content">
+        <h1 class="hero__title">Tu mirada,<br>a tu manera.</h1>
+        <p class="hero__subtitle">Extensiones de pestañas, lifting y diseño de cejas, pensados a tu medida en cada cita.</p>
+        <div class="hero__actions">
+          <a href="#agendar" class="btn btn--primary">Reservar mi cita</a>
+          <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Las siguientes secciones (servicios, packs, cómo agendar, políticas, contacto) se agregan en los próximos pasos. -->
+  </main>
+
+  <script src="assets/js/main.js?v=__CACHEBUST__" defer></script>
+</body>
+</html>
