@@ -86,6 +86,14 @@ ul{ margin: 0; padding: 0; list-style: none; }
 .btn--primary{
   background: var(--color-accent);
   color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.btn--primary .icon{
+  width: 1.05rem;
+  height: 1.05rem;
+  flex-shrink: 0;
 }
 .btn--primary:hover{ background: var(--color-accent-dk); }
 
@@ -695,3 +703,48 @@ ul{ margin: 0; padding: 0; list-style: none; }
 .schedule-list li span:first-child{ color: var(--color-ink-soft); }
 .schedule-list li span:last-child{ font-weight: 500; }
 .schedule-list .is-closed{ color: var(--color-accent); }
+
+/* ============================================
+   Reservas — placeholder del futuro gestor de citas
+   ============================================ */
+.booking-manager{
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + 3rem) 0 4rem;
+  background: var(--color-bg);
+}
+
+.booking-manager__inner{
+  max-width: 34rem;
+}
+
+.booking-manager h1{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  margin: 0.75rem 0 1rem;
+}
+
+.booking-manager p{
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+  max-width: 40ch;
+}
+
+.booking-manager__actions{
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn--ghost-light{
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+.btn--ghost-light:hover{
+  background: var(--color-bg-alt);
+  border-color: var(--color-caramel);
+}
