@@ -825,3 +825,123 @@ ul{ margin: 0; padding: 0; list-style: none; }
   color: var(--color-ink-soft);
   font-style: italic;
 }
+
+/* ============================================
+   Contacto
+   ============================================ */
+.contact{
+  padding: 6rem 0 7rem;
+  background: var(--color-bg-alt);
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 720px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+.contact-card{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+a.contact-card:hover{
+  border-color: var(--color-caramel);
+  transform: translateY(-2px);
+}
+.contact-card--static{ cursor: default; }
+
+.contact-card .icon{
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+.contact-card h3{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.contact-card p{
+  margin-top: 0.15rem;
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+}
+
+.contact-cta{ display: inline-flex; }
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer{
+  background: var(--color-ink);
+  color: rgba(255,255,255,0.75);
+  padding: 4rem 0 0;
+}
+
+.site-footer__inner{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+@media (max-width: 720px){
+  .site-footer__inner{ grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.site-footer__brand p{
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  max-width: 26ch;
+  color: rgba(255,255,255,0.6);
+}
+
+.logo--footer{ color: #fff; }
+.logo--footer .logo__studio{ color: var(--color-caramel); }
+
+.site-footer__nav,
+.site-footer__contact{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.site-footer__nav h4,
+.site-footer__contact h4{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.site-footer__nav a,
+.site-footer__contact a{
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s var(--ease);
+  width: fit-content;
+}
+.site-footer__nav a:hover,
+.site-footer__contact a:hover{ color: #fff; }
+
+.site-footer__bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+}
+.site-footer__bottom a{ color: rgba(255,255,255,0.5); }
+.site-footer__bottom a:hover{ color: #fff; }
