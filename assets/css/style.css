@@ -945,3 +945,54 @@ a.contact-card:hover{
 }
 .site-footer__bottom a{ color: rgba(255,255,255,0.5); }
 .site-footer__bottom a:hover{ color: #fff; }
+
+/* ============================================
+   Service & pack icons
+   ============================================ */
+.service-icon{
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-accent-dk);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.service-icon svg{
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.service-card--compact .service-icon{
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.service-card--compact .service-icon svg{ width: 1.15rem; height: 1.15rem; }
+
+.pack-icon{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--color-caramel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+.pack-icon svg{
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
