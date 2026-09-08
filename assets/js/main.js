@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  /* Footer: dynamic copyright year */
+  var yearEl = document.getElementById("currentYear");
+  if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
   /* Header: solid background after scrolling past the hero */
   var header = document.getElementById("siteHeader");
   var onScroll = function () {
@@ -58,4 +62,44 @@
     video.pause();
     setPausedUI(true);
   }
+
+  /* Accessible tabs (WAI-ARIA tabs pattern), works for any .tabs block on the page */
+  document.querySelectorAll(".tabs").forEach(function (tabGroup) {
+    var tabs = Array.prototype.slice.call(tabGroup.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (tab) {
+      return document.getElementById(tab.getAttribute("aria-controls"));
+    });
+
+    var activate = function (index) {
+      tabs.forEach(function (tab, i) {
+        var selected = i === index;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[i].hidden = !selected;
+      });
+      tabs[index].focus();
+    };
+
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () {
+        activate(index);
+      });
+      tab.addEventListener("keydown", function (e) {
+        var lastIndex = tabs.length - 1;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          activate(index === lastIndex ? 0 : index + 1);
+        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          activate(index === 0 ? lastIndex : index - 1);
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          activate(0);
+        } else if (e.key === "End") {
+          e.preventDefault();
+          activate(lastIndex);
+        }
+      });
+    });
+  });
 })();
