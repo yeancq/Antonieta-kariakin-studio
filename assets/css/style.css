@@ -2,15 +2,16 @@
    Antonieta Kariakin Studio — Design tokens
    ============================================ */
 :root{
-  /* Color */
-  --color-bg:        #FAF3EE;
-  --color-bg-alt:    #EFE2D8;
-  --color-ink:       #2E241F;
-  --color-ink-soft:  #6B5B4F;
-  --color-accent:    #A8574A;
-  --color-accent-dk: #8B4238;
-  --color-caramel:   #C99A7A;
-  --color-line:      rgba(46, 36, 31, 0.12);
+  /* Color — paleta inspirada en Santander Studio (marfil / negro / taupe),
+     conservando el marrón original como acento de marca */
+  --color-bg:        #FAF7F2;
+  --color-bg-alt:    #E7DCC8;
+  --color-ink:       #17130F;
+  --color-ink-soft:  #6C6055;
+  --color-accent:    #9C5A45;
+  --color-accent-dk: #7A4335;
+  --color-caramel:   #C9AE87;
+  --color-line:      rgba(23, 19, 15, 0.12);
   --color-surface:   #FFFFFF;
 
   /* Type */
@@ -69,60 +70,6 @@ ul{ margin: 0; padding: 0; list-style: none; }
 }
 
 /* ============================================
-   Scroll reveal animations
-   Elements fade + rise into view as they cross
-   the viewport, and reset when they leave it so
-   the effect replays scrolling up or down.
-   ============================================ */
-.reveal{
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-  transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
-}
-.reveal.is-visible{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered entrance for cards inside grids/lists */
-.service-grid > .reveal:nth-child(1),
-.service-grid > .reveal:nth-child(4n+1),
-.pack-grid > .reveal:nth-child(1),
-.pack-grid > .reveal:nth-child(4n+1),
-.contact-grid > .reveal:nth-child(1),
-.booking-grid > .reveal:nth-child(1),
-.flow-list > .reveal:nth-child(1),
-.accordion > .reveal:nth-child(1){ transition-delay: 0ms; }
-
-.service-grid > .reveal:nth-child(2),
-.service-grid > .reveal:nth-child(4n+2),
-.pack-grid > .reveal:nth-child(2),
-.pack-grid > .reveal:nth-child(4n+2),
-.contact-grid > .reveal:nth-child(2),
-.booking-grid > .reveal:nth-child(2),
-.flow-list > .reveal:nth-child(2),
-.accordion > .reveal:nth-child(2){ transition-delay: 90ms; }
-
-.service-grid > .reveal:nth-child(3),
-.service-grid > .reveal:nth-child(4n+3),
-.pack-grid > .reveal:nth-child(3),
-.pack-grid > .reveal:nth-child(4n+3),
-.contact-grid > .reveal:nth-child(3),
-.booking-grid > .reveal:nth-child(3),
-.flow-list > .reveal:nth-child(3),
-.accordion > .reveal:nth-child(3){ transition-delay: 180ms; }
-
-.service-grid > .reveal:nth-child(4),
-.pack-grid > .reveal:nth-child(4),
-.accordion > .reveal:nth-child(4){ transition-delay: 270ms; }
-
-@media (prefers-reduced-motion: reduce){
-  .reveal{ opacity: 1; transform: none; transition: none; }
-}
-
-/* ============================================
    Buttons
    ============================================ */
 .btn{
@@ -138,7 +85,7 @@ ul{ margin: 0; padding: 0; list-style: none; }
   white-space: nowrap;
 }
 .btn--primary{
-  background: var(--color-accent);
+  background: var(--color-ink);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -182,7 +129,7 @@ ul{ margin: 0; padding: 0; list-style: none; }
   transition: background-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
 }
 .site-header.is-scrolled{
-  background: rgba(250, 243, 238, 0.92);
+  background: rgba(250, 247, 242, 0.92);
   backdrop-filter: saturate(140%) blur(10px);
   box-shadow: 0 1px 0 var(--color-line);
 }
@@ -310,9 +257,9 @@ ul{ margin: 0; padding: 0; list-style: none; }
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(46, 36, 31, 0.18) 0%,
-    rgba(46, 36, 31, 0.02) 35%,
-    rgba(46, 36, 31, 0.35) 100%
+    rgba(23, 19, 15, 0.18) 0%,
+    rgba(23, 19, 15, 0.02) 35%,
+    rgba(23, 19, 15, 0.35) 100%
   );
 }
 
@@ -361,12 +308,12 @@ ul{ margin: 0; padding: 0; list-style: none; }
   border: 1px solid rgba(255,255,255,0.45);
   border-radius: 50%;
   color: #fff;
-  background: rgba(46,36,31,0.35);
+  background: rgba(23,19,15,0.35);
   backdrop-filter: blur(6px);
   transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 .hero__toggle:hover{
-  background: rgba(46,36,31,0.6);
+  background: rgba(23,19,15,0.6);
   border-color: #fff;
 }
 .hero__toggle .icon{
@@ -384,40 +331,21 @@ ul{ margin: 0; padding: 0; list-style: none; }
     overflow: hidden;
   }
 
-  /*
-    Cap how large the video is ever allowed to render. Without this,
-    "inset:0" would stretch the source footage to fill any viewport,
-    including huge desktop/4K screens — which is what causes the
-    blurry, over-scaled look. Centering it with a max-width/max-height
-    means it stops growing at these limits and the extra space (only
-    visible on very wide or very tall screens) is filled by the
-    .hero background color instead of a pixelated video.
-
-    NOTE: 1920x1080 is a conservative placeholder matching typical
-    "optimized for web" export sizes. If you know the exact resolution
-    of hero.mp4 / hero.webm, swap these two values for the real ones
-    (e.g. run `ffprobe assets/video/hero.mp4` from a terminal) so the
-    cap matches the footage exactly instead of guessing.
-  */
   .hero__media{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
     width: 100%;
     height: 100%;
-    max-width: 1920px;
-    max-height: 1080px;
     aspect-ratio: auto;
   }
 
   .hero__scrim{
     background: linear-gradient(
       180deg,
-      rgba(46, 36, 31, 0.35) 0%,
-      rgba(46, 36, 31, 0.05) 30%,
-      rgba(46, 36, 31, 0.15) 55%,
-      rgba(46, 36, 31, 0.78) 100%
+      rgba(23, 19, 15, 0.35) 0%,
+      rgba(23, 19, 15, 0.05) 30%,
+      rgba(23, 19, 15, 0.15) 55%,
+      rgba(23, 19, 15, 0.78) 100%
     );
   }
 
@@ -541,13 +469,12 @@ ul{ margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   padding: 1.5rem;
-  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), opacity 0.7s var(--ease);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .service-card:hover{
   border-color: var(--color-caramel);
   transform: translateY(-2px);
 }
-.service-card.reveal.is-visible:hover{ transform: translateY(-2px); }
 .service-card--compact{ padding: 1.1rem 1.5rem; }
 
 .service-card__head{
@@ -623,7 +550,7 @@ ul{ margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease), opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
 }
 .pack-card:hover{
   border-color: var(--color-caramel);
@@ -926,7 +853,7 @@ ul{ margin: 0; padding: 0; list-style: none; }
   background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
-  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), opacity 0.7s var(--ease);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 a.contact-card:hover{
   border-color: var(--color-caramel);
