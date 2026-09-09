@@ -384,11 +384,30 @@ ul{ margin: 0; padding: 0; list-style: none; }
     overflow: hidden;
   }
 
+  /*
+    Cap how large the video is ever allowed to render. Without this,
+    "inset:0" would stretch the source footage to fill any viewport,
+    including huge desktop/4K screens — which is what causes the
+    blurry, over-scaled look. Centering it with a max-width/max-height
+    means it stops growing at these limits and the extra space (only
+    visible on very wide or very tall screens) is filled by the
+    .hero background color instead of a pixelated video.
+
+    NOTE: 1920x1080 is a conservative placeholder matching typical
+    "optimized for web" export sizes. If you know the exact resolution
+    of hero.mp4 / hero.webm, swap these two values for the real ones
+    (e.g. run `ffprobe assets/video/hero.mp4` from a terminal) so the
+    cap matches the footage exactly instead of guessing.
+  */
   .hero__media{
     position: absolute;
-    inset: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
     aspect-ratio: auto;
   }
 
