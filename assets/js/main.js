@@ -103,35 +103,43 @@
     });
   });
 
-  /* Scroll reveal: sections/cards fade + rise into view, and reset
-     when they leave the viewport so the animation replays whether
-     the visitor scrolls down or back up (like santanderstudio.com). */
+  /* Scroll reveal: fade/slide sections and cards in as they enter the
+     viewport, and reset them so the effect replays when scrolling back
+     up. Staggers grid children (services, packs, cards) by 90ms. */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
 
   if (revealEls.length) {
-    if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
-      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
-    } else {
-      var revealObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            entry.target.classList.toggle("is-visible", entry.isIntersecting);
-          });
-        },
-        {
-          threshold: 0.15,
-          rootMargin: "0px 0px -8% 0px"
-        }
-      );
-      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    var staggerParents = [".service-grid", ".pack-grid", ".booking-grid", ".flow-list", ".contact-grid"];
+    var staggerSelector = staggerParents.join(",");
 
-      /* If the user's motion preference changes mid-session, stop animating */
-      prefersReducedMotion.addEventListener("change", function (e) {
-        if (e.matches) {
-          revealObserver.disconnect();
-          revealEls.forEach(function (el) { el.classList.add("is-visible"); });
-        }
+    revealEls.forEach(function (el) {
+      var parent = el.closest(staggerSelector);
+      if (!parent) { return; }
+      var siblings = Array.prototype.filter.call(parent.children, function (child) {
+        return child.classList.contains("reveal");
       });
+      var index = siblings.indexOf(el);
+      if (index > 0) {
+        el.style.setProperty("--reveal-delay", (index * 90) + "ms");
+      }
+    });
+
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      /* No IntersectionObserver support: show everything, no animation. */
+      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
     }
   }
 })();
+
+
