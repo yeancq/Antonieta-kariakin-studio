@@ -410,8 +410,8 @@ ul{ margin: 0; padding: 0; list-style: none; }
   font-size: 1.05rem;
   max-width: 38ch;
 }
-.section-head--light h2{ color: #fff; }
-.section-lead--light{ color: rgba(255,255,255,0.78); }
+.section-head--light h2{ color: var(--color-ink); }
+.section-lead--light{ color: var(--color-ink-soft); }
 
 .group-title{
   font-family: var(--font-display);
@@ -542,7 +542,7 @@ ul{ margin: 0; padding: 0; list-style: none; }
    ============================================ */
 .packs{
   padding: 6rem 0;
-  background: var(--color-ink);
+  background: var(--color-bg-alt);
 }
 
 .pack-grid{
@@ -559,27 +559,27 @@ ul{ margin: 0; padding: 0; list-style: none; }
 
 .pack-card{
   padding: 1.9rem 1.6rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .pack-card:hover{
-  border-color: var(--color-caramel);
-  background: rgba(255,255,255,0.07);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
 }
 .pack-card h3{
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
   font-size: 1.35rem;
-  color: #fff;
+  color: var(--color-ink);
 }
 .pack-card p{
-  color: rgba(255,255,255,0.7);
+  color: var(--color-ink-soft);
   font-size: 0.92rem;
   flex-grow: 1;
 }
@@ -899,8 +899,8 @@ a.contact-card:hover{
    Footer
    ============================================ */
 .site-footer{
-  background: var(--color-ink);
-  color: rgba(255,255,255,0.75);
+  background: var(--color-bg-alt);
+  color: var(--color-ink-soft);
   padding: 4rem 0 0;
 }
 
@@ -909,7 +909,7 @@ a.contact-card:hover{
   grid-template-columns: 1.6fr 1fr 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid var(--color-line);
 }
 @media (max-width: 720px){
   .site-footer__inner{ grid-template-columns: 1fr; gap: 2rem; }
@@ -919,11 +919,11 @@ a.contact-card:hover{
   margin-top: 1rem;
   font-size: 0.9rem;
   max-width: 26ch;
-  color: rgba(255,255,255,0.6);
+  color: var(--color-ink-soft);
 }
 
-.logo--footer{ color: #fff; }
-.logo--footer .logo__studio{ color: var(--color-caramel); }
+.logo--footer{ color: var(--color-ink); }
+.logo--footer .logo__studio{ color: var(--color-accent-dk); }
 
 .site-footer__nav,
 .site-footer__contact{
@@ -936,18 +936,18 @@ a.contact-card:hover{
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--color-ink);
   margin-bottom: 0.25rem;
 }
 .site-footer__nav a,
 .site-footer__contact a{
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
+  color: var(--color-ink-soft);
   transition: color 0.2s var(--ease);
   width: fit-content;
 }
 .site-footer__nav a:hover,
-.site-footer__contact a:hover{ color: #fff; }
+.site-footer__contact a:hover{ color: var(--color-accent-dk); }
 
 .site-footer__bottom{
   display: flex;
@@ -957,10 +957,10 @@ a.contact-card:hover{
   gap: 1rem;
   padding: 1.5rem 0;
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--color-ink-soft);
 }
-.site-footer__bottom a{ color: rgba(255,255,255,0.5); }
-.site-footer__bottom a:hover{ color: #fff; }
+.site-footer__bottom a{ color: var(--color-ink-soft); }
+.site-footer__bottom a:hover{ color: var(--color-accent-dk); }
 
 /* ============================================
    Service & pack icons
@@ -997,8 +997,8 @@ a.contact-card:hover{
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  color: var(--color-caramel);
+  background: var(--color-surface);
+  color: var(--color-accent-dk);
   display: flex;
   align-items: center;
   justify-content: center;
