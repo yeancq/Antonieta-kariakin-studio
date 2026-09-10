@@ -70,6 +70,21 @@ ul{ margin: 0; padding: 0; list-style: none; }
 }
 
 /* ============================================
+   Scroll reveal
+   ============================================ */
+.reveal{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
    Buttons
    ============================================ */
 .btn{
